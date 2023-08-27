@@ -1,11 +1,25 @@
 require("1")
 
-print("hello world")
+print("Greatings")
 
 vim.wo.relativenumber = true
 vim.wo.number = true
+vim.opt.expandtab = true
 
-vim.opt.tabstop = 2
-vim.opt.softtabstop = 2
-vim.opt.shiftwidth = 2
+vim.smartindent = true
 
+vim.opt.tabstop = 3
+vim.opt.softtabstop = 3
+vim.opt.shiftwidth = 3
+
+
+vim.opt.termguicolors = true
+
+vim.opt.scrolloff = 10
+vim.opt.isfname:append('@-@')
+
+vim.opt.updatetime = 50
+
+vim.opt.colorcolumn = '80'
+
+vim.g.mapleader = ' '

@@ -6,6 +6,6 @@
 			vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none" })
 			vim.api.nvim_set_hl(0, 'LineNr', { bg = "none" })
 			vim.api.nvim_set_hl(0, 'LineNr', { fg = "gray" })
-		end 
+		end
 
 		ResetColor()
