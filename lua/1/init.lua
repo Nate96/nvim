@@ -1,4 +1,4 @@
-print("Hello World from 1/")
+print("Loading Plugins")
 
 require("autoclose").setup()
 require('vscode').load()
