@@ -85,6 +85,11 @@ _G.packer_plugins = {
     path = "/Users/nate/.local/share/nvim/site/pack/packer/start/everforest-nvim",
     url = "https://github.com/neanias/everforest-nvim"
   },
+  harpoon = {
+    loaded = true,
+    path = "/Users/nate/.local/share/nvim/site/pack/packer/start/harpoon",
+    url = "https://github.com/ThePrimeagen/harpoon"
+  },
   ["nvim-treesitter"] = {
     loaded = true,
     path = "/Users/nate/.local/share/nvim/site/pack/packer/start/nvim-treesitter",

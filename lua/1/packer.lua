@@ -9,6 +9,7 @@ return require('packer').startup(function(use)
 	use 'm4xshen/autoclose.nvim'
 	use 'Mofiqul/vscode.nvim'
 	use ('nvim-treesitter/nvim-treesitter', {run = ':TSUpdate'})
+	use ('ThePrimeagen/harpoon')
 	use({
 		"neanias/everforest-nvim",
 		-- Optional; default configuration will be used if setup isn't called.
@@ -22,4 +23,5 @@ return require('packer').startup(function(use)
 		-- or                            , branch = '0.1.x',
 		requires = { {'nvim-lua/plenary.nvim'} }
 	}
+	
 end)
