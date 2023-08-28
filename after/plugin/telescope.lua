@@ -7,5 +7,5 @@ vim.keymap.set('n', '<leader>fh', builtin.help_tags, {})
 
 vim.keymap.set('n', '<leader>fgit', builtin.git_files, {})
 vim.keymap.set('n', '<leader>fs', function() 
-	builtitn.grep_string({ search = vim.fn.input("Grep > ")}) 
+	builtin.grep_string({ search = vim.fn.input("Grep > ")}) 
 end)
