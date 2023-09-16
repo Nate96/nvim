@@ -7,11 +7,5 @@ vim.keymap.set('n', '<leader>fh', builtin.help_tags, {})
 
 vim.keymap.set('n', '<leader>fgit', builtin.git_files, {})
 vim.keymap.set('n', '<leader>fs', function() 
-   local input_string = vim.fn.input("Search For > ")
-    if (input_string == '') then
-      return
-    end
-    require("telescope.builtin").grep_string({
-      search = input_string,
-    })	
+   builtin.grep_string({ search = vim.fn.input("Grep > ")})
 end)
