@@ -28,7 +28,7 @@ vim.keymap.set('n', '<leader>f', vim.lsp.buf.format)
 vim.keymap.set('n', '<leader>ws', '<C-w>s') -- split veriticly
 vim.keymap.set('n', '<leader>wv', '<C-w>v') -- split hosizontally
 vim.keymap.set('n', '<leader>wq', '<C-w>q') -- quit window
-vim.keymap.set('n', '<leader>wh', '<C-w>H') -- move left
-vim.keymap.set('n', '<leader>wj', '<C-w>J') -- move down
-vim.keymap.set('n', '<leader>wk', '<C-w>K') -- move up
-vim.keymap.set('n', '<leader>wl', '<C-w>L') -- move right
+vim.keymap.set('n', '<leader>wh', '<C-w>h') -- move left
+vim.keymap.set('n', '<leader>wj', '<C-w>j') -- move down
+vim.keymap.set('n', '<leader>wk', '<C-w>k') -- move up
+vim.keymap.set('n', '<leader>wl', '<C-w>l') -- move right
