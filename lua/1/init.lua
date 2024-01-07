@@ -1,7 +1,8 @@
-print("Loading Plugins")
+print("Loading Plugins....")
 
 require("autoclose").setup()
 require('vscode').load()
+require('packer')
 
 require('telescope').setup{
   defaults = {
@@ -11,3 +12,5 @@ require('telescope').setup{
     }
   }
 }
+
+print("Plugins Has Been Loaded")

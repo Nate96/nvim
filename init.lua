@@ -1,6 +1,13 @@
 require("1")
 
-print("Greatings")
+print("Greatings", '\n')
+print(" --------------------")
+print("{ That's pretty Neat! }")
+print(" --------------------")
+print(".")
+print(" .")
+print("  - >()_")
+print("     (__)__ _")
 
 vim.wo.relativenumber = true
 vim.wo.number = true
