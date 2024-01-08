@@ -1,8 +1,15 @@
+-- FULL Path to the local.lua file
+LocalConfigFile = ""
+
+if (LocalConfigFile ~= nil and LocalConfigFile ~= '') then
+    dofile(LocalConfigFile)
+end
+
 print("Loading Plugins....")
 
 require("autoclose").setup()
-require('vscode').load()
-require('packer')
+require("vscode").load()
+require("packer")
 
 require('telescope').setup{
   defaults = {
@@ -14,3 +21,4 @@ require('telescope').setup{
 }
 
 print("Plugins Has Been Loaded")
+

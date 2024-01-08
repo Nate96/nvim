@@ -1,13 +1,11 @@
-require("1")
-
-print("Greatings", '\n')
+print("Welcome", '\n', '\n')
 print(" --------------------")
 print("{ That's pretty Neat! }")
 print(" --------------------")
 print(".")
 print(" .")
 print("  - >()_")
-print("     (__)__ _")
+print("     (__)__ _", '\n', '\n')
 
 vim.wo.relativenumber = true
 vim.wo.number = true
@@ -15,16 +13,16 @@ vim.opt.expandtab = true
 
 vim.smartindent = true
 
-vim.opt.tabstop = 4
-vim.opt.softtabstop = 4
-vim.opt.shiftwidth = 4
+vim.opt.tabstop = 2
+vim.opt.softtabstop = 2
+vim.opt.shiftwidth = 2
 
 vim.opt.termguicolors = true
 
 vim.opt.scrolloff = 99
 vim.opt.isfname:append('@-@')
 vim.opt.updatetime = 50
-vim.opt.colorcolumn = '90'
+vim.opt.colorcolumn = '80'
 
 -- HotKey Changes
 vim.g.mapleader = ' '
@@ -39,3 +37,5 @@ vim.keymap.set('n', '<leader>wh', '<C-w>h') -- move left
 vim.keymap.set('n', '<leader>wj', '<C-w>j') -- move down
 vim.keymap.set('n', '<leader>wk', '<C-w>k') -- move up
 vim.keymap.set('n', '<leader>wl', '<C-w>l') -- move right
+
+require("1")
