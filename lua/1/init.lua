@@ -1,5 +1,5 @@
 -- FULL Path to the local.lua file
-LocalConfigFile = ""
+LocalConfigFile = "C:/Users/nbraukhoff/AppData/Local/nvim/lua/1/local.lua"
 
 if (LocalConfigFile ~= nil and LocalConfigFile ~= '') then
     dofile(LocalConfigFile)
