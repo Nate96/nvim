@@ -1,3 +1,5 @@
+-- TODO: Delete extra lines
+-- TODO: call modes files to set dev mode 
 print("Welcome", '\n', '\n')
 print(" ----------------------")
 print("{ Hey, got any grapes? }")
