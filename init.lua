@@ -1,13 +1,24 @@
+print("Welcome", '\n', '\n')
+
+print("       / <     >\\")
+print("      / /      \\ \\")
+print("     ( (________) )")
+print("      |          |")
+print("      |  _    _  |")
+print("      | (_)  (_) |")
+print("      \\          /")
+print("       \\________/ ")
+print("(~~~~~~~ / /  \\ ~~~~~~~~)")
+print("|       | /  / |        |")
+print("|~~~~~~~|/  /\\ |~~~~~~~~|")
+print("|~~~~~~~|  /\\ \\|~~~~~~~~|")
+print("//      |//  \\ |       \\\\")
+print("----------||-||----------")
+print("||]       v   v       [||")
+print("||                     || ",'\n', '\n')
+
 -- TODO: Delete extra lines
 -- TODO: call modes files to set dev mode 
-print("Welcome", '\n', '\n')
-print(" ----------------------")
-print("{ Hey, got any grapes? }")
-print(" ----------------------")
-print(".")
-print(" .")
-print("  - >()_")
-print("     (__)__ _", '\n', '\n')
 
 vim.wo.relativenumber = true
 vim.wo.number = true
@@ -39,5 +50,8 @@ vim.keymap.set('n', '<leader>wh', '<C-w>h') -- move left
 vim.keymap.set('n', '<leader>wj', '<C-w>j') -- move down
 vim.keymap.set('n', '<leader>wk', '<C-w>k') -- move up
 vim.keymap.set('n', '<leader>wl', '<C-w>l') -- move right
+
+-- Toggling Spell Checker 
+vim.api.nvim_set_keymap('n', '<leader>s', ':set spell!<CR>', { noremap = true, silent = true })
 
 require("1")
