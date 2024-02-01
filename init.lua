@@ -39,9 +39,9 @@ vim.g.mapleader = ' '
 vim.keymap.set('n', '<leader>pv', vim.cmd.Ex)
 vim.keymap.set('n', '<leader>f', vim.lsp.buf.format)
 
--- Remape for natvigating windows
-vim.keymap.set('n', '<leader>ws', '<C-w>s') -- split veriticly
-vim.keymap.set('n', '<leader>wv', '<C-w>v') -- split hosizontally
+-- Remap for navigating windows
+vim.keymap.set('n', '<leader>ws', '<C-w>s') -- split vertically
+vim.keymap.set('n', '<leader>wv', '<C-w>v') -- split horizontally
 vim.keymap.set('n', '<leader>wq', '<C-w>q') -- quit window
 vim.keymap.set('n', '<leader>wh', '<C-w>h') -- move left
 vim.keymap.set('n', '<leader>wj', '<C-w>j') -- move down
