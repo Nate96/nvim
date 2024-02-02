@@ -1,4 +1,4 @@
-function ResetColor(color)
+function SetTheme(color)
   color = color or "vscode"
   vim.cmd.colorscheme(color)
 
@@ -8,4 +8,4 @@ function ResetColor(color)
   vim.api.nvim_set_hl(0, 'LineNr', { fg = "gray" })
 end
 
-ResetColor()
+SetTheme()
