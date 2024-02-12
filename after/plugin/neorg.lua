@@ -1,3 +1,5 @@
+-- TODO: Implement Functions to travers through journals
+
 -- Navigating Enviorment
 vim.keymap.set('n', '<leader>nf', ':Neorg journal tomorrow')
 vim.keymap.set('n', '<leader>nd', ':Neorg journal today')
