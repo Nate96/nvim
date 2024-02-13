@@ -12,13 +12,7 @@ require('packer').startup(function(use)
 	use('ThePrimeagen/harpoon')
 	use('mbbill/undotree')
 	use('tpope/vim-fugitive')
-	use({
-		"neanias/everforest-nvim",
-		-- Optional; default configuration will be used if setup isn't called.
-		config = function()
-			require("everforest").setup()
-		end,
-	})
+	use("neanias/everforest-nvim")
 
 	use {
 		'nvim-telescope/telescope.nvim', tag = '0.1.2',

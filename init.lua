@@ -50,6 +50,12 @@ vim.keymap.set('n', '<leader>wj', '<C-w>j') -- move down
 vim.keymap.set('n', '<leader>wk', '<C-w>k') -- move up
 vim.keymap.set('n', '<leader>wl', '<C-w>l') -- move right
 
+-- Remap for resizing windows
+vim.keymap.set('n', '<leader>w,', '10<C-w><') -- Decrease pane width by 10
+vim.keymap.set('n', '<leader>w.', '10<C-w>>') -- Increase pane width by 10
+vim.keymap.set('n', '<leader>w+', '5<C-w>+')  -- Increase pane hight by 5
+vim.keymap.set('n', '<leader>w_', '5<C-w>-')  -- Decrease pane hight by 5
+
 -- Toggling Spell Checker 
 vim.api.nvim_set_keymap('n', '<leader>s', ':set spell!<CR>', { noremap = true, silent = true })
 
