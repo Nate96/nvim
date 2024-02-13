@@ -1,4 +1,6 @@
 -- FULL Path to the local.lua file
+-- TODO: Add local configuration and have local configs be able to stay when
+--      merging master into local
 LocalConfigFile = ""
 
 print("Loading Plugins....")
@@ -21,5 +23,3 @@ print("Plugins Has Been Loaded")
 if (LocalConfigFile ~= nil and LocalConfigFile ~= '') then
     dofile(LocalConfigFile)
 end
-
-

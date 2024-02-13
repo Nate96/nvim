@@ -1,11 +1,11 @@
 require("everforest").setup({
-  transparent = "soft",
+  transparent = "hardness",
   ---Controls the "hardness" of the background. Options are "soft", "medium" or "hard".
   ---Default is "medium".
   background = "soft",
   ---How much of the background should be transparent. 2 will have more UI
   ---components be transparent (e.g. status line background)
-  transparent_background_level = 3,
+  transparent_background_level = 2,
   ---Whether italics should be used for keywords and more.
   italics = false,
   ---Disable italic fonts for comments. Comments are in italics by default, set
@@ -18,7 +18,7 @@ require("everforest").setup({
   ---`"low"` (default).
   ui_contrast = "hight",
   ---Dim inactive windows. Only works in Neovim. Can look a bit weird with Telescope.
-  dim_inactive_windows = true,
+  dim_inactive_windows = false,
   ---Some plugins support highlighting error/warning/info/hint texts, by
   ---default these texts are only underlined, but you can use this option to
   ---also highlight the background of them.
@@ -38,5 +38,4 @@ require("everforest").setup({
   ---@param palette Palette
   on_highlights = function(highlight_groups, palette) end,
 
-  disable_nvimtree_bg = true,
 })
