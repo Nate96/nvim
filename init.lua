@@ -50,7 +50,8 @@ vim.keymap.set('n', '<leader>wj', '<C-w>j') -- move down
 vim.keymap.set('n', '<leader>wk', '<C-w>k') -- move up
 vim.keymap.set('n', '<leader>wl', '<C-w>l') -- move right
 
+
 -- Toggling Spell Checker 
 vim.api.nvim_set_keymap('n', '<leader>s', ':set spell!<CR>', { noremap = true, silent = true })
 
-require("1")
+require("config")
