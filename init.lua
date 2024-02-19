@@ -18,6 +18,9 @@ print("||                     || ",'\n', '\n')
 
 -- TODO: Delete extra lines
 -- TODO: call modes files to set dev mode 
+-- TODO: implement .env
+-- TODO: implment neorg journal navigatoin
+-- TODO: config neorg journal stratigy to flat
 
 vim.wo.relativenumber = true
 vim.wo.number = true
@@ -25,9 +28,9 @@ vim.opt.expandtab = true
 
 vim.smartindent = true
 
-vim.opt.tabstop = 2
-vim.opt.softtabstop = 2
-vim.opt.shiftwidth = 2
+vim.opt.tabstop = 3
+vim.opt.softtabstop = 3
+vim.opt.shiftwidth = 3
 
 vim.opt.termguicolors = true
 
