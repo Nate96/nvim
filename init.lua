@@ -13,7 +13,7 @@ print("|~~~~~~~|/  /\\ |~~~~~~~~|")
 print("|~~~~~~~|  /\\ \\|~~~~~~~~|")
 print("//      |//  \\ |       \\\\")
 print("---------||-||-----------")
-print("||]       v   v       [||")
+print("||]      v   v        [||")
 print("||                     || ",'\n', '\n')
 
 -- TODO: Delete extra lines
@@ -58,6 +58,9 @@ vim.keymap.set('n', '<leader>w,', '10<C-w><') -- Decrease pane width by 10
 vim.keymap.set('n', '<leader>w.', '10<C-w>>') -- Increase pane width by 10
 vim.keymap.set('n', '<leader>w+', '5<C-w>+')  -- Increase pane hight by 5
 vim.keymap.set('n', '<leader>w_', '5<C-w>-')  -- Decrease pane hight by 5
+
+-- windows block mode
+vim.keymap.set('n', '<leader>v', '<C-v>')
 
 -- Toggling Spell Checker 
 vim.api.nvim_set_keymap('n', '<leader>s', ':set spell!<CR>', { noremap = true, silent = true })
