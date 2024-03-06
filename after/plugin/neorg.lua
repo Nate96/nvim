@@ -1,24 +1,33 @@
--- TODO: Implement Functions to travers through journals
-
 -- Navigating Enviorment
-vim.keymap.set('n', '<leader>nf', ':Neorg journal tomorrow')
+
+vim.keymap.set('n', '<leader>nf', function ()
+   Jump_Through_Files('directory', 'file', 'forward')
+end)
+
+vim.keymap.set('n', '<leader>ns', function ()
+   Jump_Through_Files('directory', 'file', 'forward')
+end)
+
 vim.keymap.set('n', '<leader>nd', ':Neorg journal today')
-vim.keymap.set('n', '<leader>ns', ':Neorg journal yesterday')
 
 -- go to index
 vim.keymap.set('n', '<leader>ni', ':Neorg index')
-
 
 -- Function to get a list of Norg files in the specified directory
 local function get_norg_files(directory)
     local files = {}
     local pfile = io.popen('ls ' .. directory)
-    for filename in pfile:lines() do
-        if filename:match('^%d%d%d%d%-%d%d%-%d%d%.org$') then
-            table.insert(files, filename)
-        end
+
+    if (pfile ~= nil) then
+       for filename in pfile:lines() do
+          if filename:match('^%d%d%d%d%-%d%d%-%d%d%.org$') then
+             table.insert(files, filename)
+          end
+       end
+       pfile:close()
+       return files
     end
-    pfile:close()
+
     return files
 end
 
@@ -34,7 +43,7 @@ end
 
 -- Function to get the previous file name
 local function get_previous_file(files, current_index)
-    if current_index > 1 then
+    if current_index and current_index > 1 then
         return files[current_index - 1]
     else
         return files[#files]  -- Wrap around to the last file
@@ -43,7 +52,7 @@ end
 
 -- Function to get the next file name
 local function get_next_file(files, current_index)
-    if current_index < #files then
+    if current_index and current_index < #files then
         return files[current_index + 1]
     else
         return files[1]  -- Wrap around to the first file
@@ -51,7 +60,7 @@ local function get_next_file(files, current_index)
 end
 
 -- Main function to jump backward or forward through Norg files
-local function jump_through_files(directory, current_file, direction)
+function Jump_Through_Files(directory, current_file, direction)
     local files = get_norg_files(directory)
     table.sort(files)  -- Sort files by date
 
@@ -79,4 +88,4 @@ end
 local current_file = "2024-03-05.org"  -- Current file
 local directory = "/path/to/your/norg/files/directory/"
 local direction = "backward"  -- or "forward"
-jump_through_files(directory, current_file, direction)
+Jump_Through_Files(directory, current_file, direction)
