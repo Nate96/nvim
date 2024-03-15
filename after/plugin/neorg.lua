@@ -1,7 +1,11 @@
 -- Navigating Enviorment
+-- local lfs = require('lfs')
 
 vim.keymap.set('n', '<leader>nf', function ()
-   Jump_Through_Files('directory', 'file', 'forward')
+--  local current_directory = lfs.currentdir()
+--  print("Current directory:", current_directory)
+
+   --Jump_Through_Files('directory', 'file', 'forward')
 end)
 
 vim.keymap.set('n', '<leader>ns', function ()
@@ -15,73 +19,73 @@ vim.keymap.set('n', '<leader>ni', ':Neorg index')
 
 -- Function to get a list of Norg files in the specified directory
 local function get_norg_files(directory)
-    local files = {}
-    local pfile = io.popen('ls ' .. directory)
+   local files = {}
+   local pfile = io.popen('ls ' .. directory)
 
-    if (pfile ~= nil) then
-       for filename in pfile:lines() do
-          if filename:match('^%d%d%d%d%-%d%d%-%d%d%.org$') then
-             table.insert(files, filename)
-          end
-       end
-       pfile:close()
-       return files
-    end
+   if (pfile ~= nil) then
+      for filename in pfile:lines() do
+         if filename:match('^%d%d%d%d%-%d%d%-%d%d%.org$') then
+            table.insert(files, filename)
+         end
+      end
+      pfile:close()
+      return files
+   end
 
-    return files
+   return files
 end
 
 -- Function to find the index of the current file in the list of files
 local function find_current_index(files, current_file)
-    for i, filename in ipairs(files) do
-        if filename == current_file then
-            return i
-        end
-    end
-    return nil
+   for i, filename in ipairs(files) do
+      if filename == current_file then
+         return i
+      end
+   end
+   return nil
 end
 
 -- Function to get the previous file name
 local function get_previous_file(files, current_index)
-    if current_index and current_index > 1 then
-        return files[current_index - 1]
-    else
-        return files[#files]  -- Wrap around to the last file
-    end
+   if current_index and current_index > 1 then
+      return files[current_index - 1]
+   else
+      return files[#files]  -- Wrap around to the last file
+   end
 end
 
 -- Function to get the next file name
 local function get_next_file(files, current_index)
-    if current_index and current_index < #files then
-        return files[current_index + 1]
-    else
-        return files[1]  -- Wrap around to the first file
-    end
+   if current_index and current_index < #files then
+      return files[current_index + 1]
+   else
+      return files[1]  -- Wrap around to the first file
+   end
 end
 
 -- Main function to jump backward or forward through Norg files
 function Jump_Through_Files(directory, current_file, direction)
-    local files = get_norg_files(directory)
-    table.sort(files)  -- Sort files by date
+   local files = get_norg_files(directory)
+   table.sort(files)  -- Sort files by date
 
-    local current_index = find_current_index(files, current_file)
-    if not current_index then
-        print("Current file not found in directory.")
-        return
-    end
+   local current_index = find_current_index(files, current_file)
+   if not current_index then
+      print("Current file not found in directory.")
+      return
+   end
 
-    local new_file
-    if direction == "backward" then
-        new_file = get_previous_file(files, current_index)
-    elseif direction == "forward" then
-        new_file = get_next_file(files, current_index)
-    else
-        print("Invalid direction. Please specify 'backward' or 'forward'.")
-        return
-    end
+   local new_file
+   if direction == "backward" then
+      new_file = get_previous_file(files, current_index)
+   elseif direction == "forward" then
+      new_file = get_next_file(files, current_index)
+   else
+      print("Invalid direction. Please specify 'backward' or 'forward'.")
+      return
+   end
 
-    print("Jumping", direction, "to:", new_file)
-    -- Implement your logic to open/display the new_file
+   print("Jumping", direction, "to:", new_file)
+   -- Implement your logic to open/display the new_file
 end
 
 -- Example usage:

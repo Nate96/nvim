@@ -8,7 +8,7 @@ print("       |  _   _  |")
 print("       | / \\ / \\ |")
 print("       : \\_/ \\_/ ;")
 print("        \\_______/")
-print("(~~~~~~~ / /  \\ ~~~~~~~~)")
+print("(~~~~~~~~/ /  \\~~~~~~~~~)")
 print("|~~~~~~~|/  /\\ |~~~~~~~~|")
 print("|~~~~~~~|  /\\ \\|~~~~~~~~|")
 print("//      |//  \\ |       \\\\")
@@ -16,11 +16,13 @@ print("---------||-||-----------")
 print("||]      v   v        [||")
 print("||                     || ",'\n', '\n')
 
--- TODO: Delete extra lines
--- TODO: call modes files to set dev mode 
+-- TODO: Hotkey's for Mode Changes
 -- TODO: implement .env
--- TODO: implment neorg journal navigatoin
--- TODO: config neorg journal stratigy to flat
+-- TODO: Implement Obsidian
+-- TODO: Add Co-Pilot
+-- TODO: Add Chat-GBT
+-- TODO: Uninstall Neorg
+-- TODO: Uninstall Auto complete brakets
 
 vim.wo.relativenumber = true
 vim.wo.number = true
