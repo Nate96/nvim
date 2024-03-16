@@ -14,15 +14,9 @@ print("|~~~~~~~|  /\\ \\|~~~~~~~~|")
 print("//      |//  \\ |       \\\\")
 print("---------||-||-----------")
 print("||]      v   v        [||")
-print("||                     || ",'\n', '\n')
+print("||                     || ", '\n', '\n')
 
--- TODO: Hotkey's for Mode Changes
 -- TODO: implement .env
--- TODO: Implement Obsidian
--- TODO: Add Co-Pilot
--- TODO: Add Chat-GBT
--- TODO: Uninstall Neorg
--- TODO: Uninstall Auto complete brakets
 
 vim.wo.relativenumber = true
 vim.wo.number = true
@@ -64,7 +58,7 @@ vim.keymap.set('n', '<leader>w_', '5<C-w>-')  -- Decrease pane hight by 5
 -- windows block mode
 vim.keymap.set('n', '<leader>v', '<C-v>')
 
--- Toggling Spell Checker 
+-- Toggling Spell Checker
 vim.api.nvim_set_keymap('n', '<leader>s', ':set spell!<CR>', { noremap = true, silent = true })
 
 require("config")

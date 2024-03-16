@@ -5,9 +5,9 @@ LocalConfigFile = ""
 
 print("Loading Plugins....")
 
-require("autoclose").setup()
 require("vscode").load()
 require("packer")
+require("obsidian")
 
 require('telescope').setup{
   defaults = {
@@ -16,20 +16,6 @@ require('telescope').setup{
       ".git"
     }
   }
-}
-
-require('neorg').setup {
-  load = {
-    ["core.defaults"] = {},  -- Loads default behaviour
-    ["core.concealer"] = {}, -- Adds pretty icons to your documents
-    ["core.dirman"] = {      -- Manages Neorg workspaces
-      config = {
-        workspaces = {
-          notes = "~/notes",
-        },
-      },
-    },
-  },
 }
 
 print("Plugins Has Been Loaded")
