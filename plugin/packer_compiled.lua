@@ -79,15 +79,15 @@ _G.packer_plugins = {
     path = "C:\\Users\\nbraukhoff\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\LuaSnip",
     url = "https://github.com/L3MON4D3/LuaSnip"
   },
+  ["autoclose.nvim"] = {
+    loaded = true,
+    path = "C:\\Users\\nbraukhoff\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\autoclose.nvim",
+    url = "https://github.com/m4xshen/autoclose.nvim"
+  },
   ["cmp-nvim-lsp"] = {
     loaded = true,
     path = "C:\\Users\\nbraukhoff\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\cmp-nvim-lsp",
     url = "https://github.com/hrsh7th/cmp-nvim-lsp"
-  },
-  ["everforest-nvim"] = {
-    loaded = true,
-    path = "C:\\Users\\nbraukhoff\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\everforest-nvim",
-    url = "https://github.com/neanias/everforest-nvim"
   },
   harpoon = {
     loaded = true,
