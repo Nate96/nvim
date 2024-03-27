@@ -58,6 +58,11 @@ vim.keymap.set('n', '<leader>w_', '5<C-w>-')  -- Decrease pane hight by 5
 -- windows block mode
 vim.keymap.set('n', '<leader>v', '<C-v>')
 
+-- yanking text to system
+vim.keymap.set('n', '<leader>y', '"+y')
+vim.keymap.set('n', '<leader>yy', '"+yy')
+
+
 -- Toggling Spell Checker
 vim.api.nvim_set_keymap('n', '<leader>s', ':set spell!<CR>', { noremap = true, silent = true })
 
