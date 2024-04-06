@@ -30,6 +30,8 @@ vim.opt.shiftwidth = 3
 
 vim.opt.termguicolors = true
 
+vim.opt.wrap = false
+
 vim.opt.scrolloff = 99
 vim.opt.isfname:append('@-@')
 vim.opt.updatetime = 50
