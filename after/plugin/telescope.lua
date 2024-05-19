@@ -18,6 +18,6 @@ vim.keymap.set('n', '<leader>fs', function()
       })
 end)
 
-vim.keymap.set('n', 'fd', function()
+vim.keymap.set('n', '<leader>fd', function()
    builtin.find_files({ cwd = utils.buffer_dir() })
 end)
