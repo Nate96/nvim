@@ -1,7 +1,9 @@
+local FORWARD  =  1
+local BACKWARD = -1
+
 local function jump(direction)
    local directory = vim.fn.getcwd() .. "/Journal"
    local current_page = vim.api.nvim_buf_get_name(0):match(".*/(%d%d%d%d%-%d%d%-%d%d)")
-
    local files = vim.fn.readdir(directory)
 
    for index, file in ipairs(files) do
@@ -27,8 +29,8 @@ local function jump_to_today()
 end
 
 vim.keymap.set('n', '<leader>k', function () jump_to_today() end)
-vim.keymap.set('n', '<leader>j', function() jump(1) end)
-vim.keymap.set('n', '<leader>l', function() jump(-1) end)
+vim.keymap.set('n', '<leader>j', function() jump(FORWARD) end)
+vim.keymap.set('n', '<leader>l', function() jump(BACKWARD) end)
 
--- TODO: Have option to create a Journal Direcory in the current directory
-
+-- TODO: when Journal directory is not pressent, ask user to create one. 
+-- TODO: Add check for first page and last page when jumping FORWARD or BACKWARD
