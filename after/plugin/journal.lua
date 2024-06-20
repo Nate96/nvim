@@ -10,16 +10,17 @@ local function jump(direction)
       print("current page name is not in the correct formate")
    else
       for index, file in ipairs(files) do
-         print(index)
-         if index == 1 and direction == BACKWARD then
-            print("You are at the first entry cannot jump backwards")
-            break
-         elseif index == #files and direction == FORWARD then
-            print("You are at the last entry cannot jump forward")
-            break
-         elseif file:match("(%d%d%d%d%-%d%d%-%d%d)") == current_page then
-            vim.api.nvim_command("edit " .. directory .. '/' .. files[index + direction])
-            break
+         if file:match("(%d%d%d%d%-%d%d%-%d%d)") == current_page then
+            if index == 1 and direction == BACKWARD then
+               print("You are at the first entry cannot jump backwards")
+               break
+            elseif index == #files and direction == FORWARD then
+               print("You are at the last entry cannot jump forward")
+               break
+            else
+               vim.api.nvim_command("edit " .. directory .. '/' .. files[index + direction])
+               break
+            end
          end
       end
    end
