@@ -2,6 +2,38 @@
 local FORWARD  =  1
 local BACKWARD = -1
 
+
+local function clean_journal()
+   local directory = vim.fn.getcwd() .. "/Journal/"
+   local files = vim.fn.readdir(directory)
+
+   if files == nil then
+      print("cannot perform action")
+   else
+      for _, file in ipairs(files) do
+         local f = io.open(directory .. file, "r")
+         local file_size = -1
+
+         if f ~= nil then
+            file_size = f:seek("end")
+            f:close()
+         end
+
+         if file_size == 0 then
+            print("deleting:", file)
+            local success, err = os.remove(directory .. file)
+            if success then
+               print("success")
+            else
+               print("Error:" , err)
+            end
+         elseif file_size == -1 then
+            print("err")
+         end
+      end
+   end
+end
+
 local function jump(direction)
    local directory = vim.fn.getcwd() .. "/Journal"
    local current_page = vim.api.nvim_buf_get_name(0):match(".*/(%d%d%d%d%-%d%d%-%d%d)")
@@ -57,3 +89,4 @@ end
 vim.keymap.set('n', '<leader>k', function () jump_to_today() end)
 vim.keymap.set('n', '<leader>j', function() jump(FORWARD) end)
 vim.keymap.set('n', '<leader>l', function() jump(BACKWARD) end)
+vim.api.nvim_create_user_command("CleanJournal", clean_journal, {})
