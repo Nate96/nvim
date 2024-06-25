@@ -1,5 +1,38 @@
+-- Directions
 local FORWARD  =  1
 local BACKWARD = -1
+
+
+local function clean_journal()
+   local directory = vim.fn.getcwd() .. "/Journal/"
+   local files = vim.fn.readdir(directory)
+
+   if files == nil then
+      print("cannot perform action")
+   else
+      for _, file in ipairs(files) do
+         local f = io.open(directory .. file, "r")
+         local file_size = -1
+
+         if f ~= nil then
+            file_size = f:seek("end")
+            f:close()
+         end
+
+         if file_size == 0 then
+            print("deleting:", file)
+            local success, err = os.remove(directory .. file)
+            if success then
+               print("success")
+            else
+               print("Error:" , err)
+            end
+         elseif file_size == -1 then
+            print("err")
+         end
+      end
+   end
+end
 
 local function jump(direction)
    local directory = vim.fn.getcwd() .. "/Journal"
@@ -36,13 +69,12 @@ local function jump_to_today()
    if stat and stat.type == "directory" then
       local files = vim.fn.readdir(directory)
 
-      if current_day ==  files[#files]:match("(%d%d%d%d%-%d%d%-%d%d)") then
+      if files[#files] ~= nil and current_day == files[#files]:match("(%d%d%d%d%-%d%d%-%d%d)") then
          vim.api.nvim_command("edit " .. directory .. '/' .. files[#files])
       else
          -- FORMAT: yyyy-mm-dd WEEKDAY
          vim.api.nvim_command("edit " .. directory .. '/' .. current_day .. ' ' .. current_day_of_week .. ".md")
       end
-
    else
       local input = vim.fn.input("the Journal Direcory is not create, do you want to create? y/n: ")
 
@@ -57,3 +89,4 @@ end
 vim.keymap.set('n', '<leader>k', function () jump_to_today() end)
 vim.keymap.set('n', '<leader>j', function() jump(FORWARD) end)
 vim.keymap.set('n', '<leader>l', function() jump(BACKWARD) end)
+vim.api.nvim_create_user_command("CleanJournal", clean_journal, {})
