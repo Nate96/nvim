@@ -39,7 +39,7 @@ vim.opt.colorcolumn = '80'
 
 -- HotKey Changes
 vim.g.mapleader = ' '
-vim.keymap.set('n', '<leader>pp', vim.cmd.Ex)
+vim.keymap.set('n', '<leader><leader>', vim.cmd.Ex)
 vim.keymap.set('n', '<leader>f', vim.lsp.buf.format)
 
 -- Remap for navigating windows
