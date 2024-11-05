@@ -1,11 +1,13 @@
--- This file can be loaded by calling `lua require('plugins')` from your init.vim
+-- This file can be loaded by calling `lua require('plugins')` from init.vim
 
--- Only required if you have packer configured as `opt`
 vim.cmd [[packadd packer.nvim]]
 
 require('packer').startup(function(use)
   -- Packer can manage itself
 	use 'wbthomason/packer.nvim'
+
+   -- vs code theme
+   -- https://github.com/Mofiqul/vscode.nvim
 	use 'Mofiqul/vscode.nvim'
    use {
       'nvim-treesitter/nvim-treesitter',
@@ -14,8 +16,18 @@ require('packer').startup(function(use)
          ts_update()
       end,
    }
+
+   -- Navigating files faster
+   -- https://github.com/ThePrimeagen/harpoon
 	use('ThePrimeagen/harpoon')
+
+   -- the best undoing system ever. 
+   -- https://github.com/mbbill/undotree
 	use('mbbill/undotree')
+
+
+   -- searching through projects
+   -- https://github.com/mbbill/undotree
 	use('tpope/vim-fugitive')
    use {
     'nvim-telescope/telescope.nvim', tag = '0.1.2',
@@ -23,6 +35,7 @@ require('packer').startup(function(use)
       requires = { { 'nvim-lua/plenary.nvim' } }
   }
 
+  -- Lsp
   use {
     'VonHeikemen/lsp-zero.nvim',
     branch = 'v2.x',
@@ -39,5 +52,4 @@ require('packer').startup(function(use)
     }
   }
 
-  print("packer has been loaded")
 end)
