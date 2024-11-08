@@ -6,6 +6,12 @@ lsp.ensure_installed({
    -- Markdown LSP
    -- https://github.com/artempyanykh/marksman
    'marksman'
+
+   -- Python LSPs
+   -- https://github.com/python-lsp/python-lsp-server
+   , 'python-lsp-server'
+   -- https://github.com/python-lsp/python-lsp-server
+   , 'jedi'
 })
 
 -- Fix Undefined global 'vim'
