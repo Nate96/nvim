@@ -16,8 +16,6 @@ print("---------||-||-----------")
 print("||]      v   v        [||")
 print("||                     || ", '\n', '\n')
 
--- TODO: implement .env
-
 vim.wo.relativenumber = true
 vim.wo.number = true
 vim.opt.expandtab = true

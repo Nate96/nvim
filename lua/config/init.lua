@@ -1,6 +1,4 @@
 -- FULL Path to the local.lua file
--- TODO: Add local configuration and have local configs be able to stay when
---      merging master into local
 LocalConfigFile = ""
 
 print("Loading Plugins....")
@@ -8,16 +6,23 @@ print("Loading Plugins....")
 require("vscode").load()
 require("packer")
 require('telescope').setup{
-  defaults = {
-    file_ignore_patterns = {
-      "node_modules",
-      ".git"
-    }
-  }
+   defaults = {
+      file_ignore_patterns = {
+         "node_modules",
+         ".git"
+      },
+      -- Custom Layout
+      -- Full screen
+      -- ratio is 25% 75%
+      layout_strategy = "horizontal",
+      layout_config = {
+         horizontal = {
+            prompt_position = "bottom",
+            width = { padding = 0 },
+            height = { padding = 0 },
+            preview_width = 0.75,}
+         },
+   }
 }
 
 print("Plugins Has Been Loaded")
-
-if (LocalConfigFile ~= nil and LocalConfigFile ~= '') then
-    dofile(LocalConfigFile)
-end
