@@ -94,6 +94,11 @@ _G.packer_plugins = {
     path = "/Users/jade/.local/share/nvim/site/pack/packer/start/harpoon",
     url = "https://github.com/ThePrimeagen/harpoon"
   },
+  ["journal.nvim"] = {
+    loaded = true,
+    path = "/Users/jade/.local/share/nvim/site/pack/packer/start/journal.nvim",
+    url = "https://github.com/Nate96/journal.nvim"
+  },
   ["lsp-zero.nvim"] = {
     loaded = true,
     path = "/Users/jade/.local/share/nvim/site/pack/packer/start/lsp-zero.nvim",

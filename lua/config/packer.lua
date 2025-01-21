@@ -5,9 +5,12 @@ vim.cmd [[packadd packer.nvim]]
 require('packer').startup(function(use)
   -- Packer can manage itself
 	use 'wbthomason/packer.nvim'
-   
+
    -- auto close
    use 'm4xshen/autoclose.nvim'
+
+   -- my plugins
+   use 'Nate96/journal.nvim'
 
    -- vs code theme
    -- https://github.com/Mofiqul/vscode.nvim
