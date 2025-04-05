@@ -66,3 +66,4 @@ vim.keymap.set('n', '<leader>yy', '"+yy')
 vim.api.nvim_set_keymap('n', '<leader>s', ':set spell!<CR>', { noremap = true, silent = true })
 
 require("config")
+require("plugins")

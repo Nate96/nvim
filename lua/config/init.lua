@@ -1,10 +1,5 @@
--- FULL Path to the local.lua file
-LocalConfigFile = ""
-
-print("Loading Plugins....")
-
 require("vscode").load()
-require("packer")
+
 require('telescope').setup{
    defaults = {
       file_ignore_patterns = {
@@ -24,5 +19,4 @@ require('telescope').setup{
          },
    }
 }
-
-print("Plugins Has Been Loaded")
+print("Configuration Loaded")

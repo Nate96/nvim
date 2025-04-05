@@ -61,3 +61,5 @@ require('packer').startup(function(use)
   }
 
 end)
+
+print("Go Pack Go!!!")

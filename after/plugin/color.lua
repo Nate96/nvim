@@ -1,5 +1,4 @@
 function SetTheme(color)
-   print("setting theme")
   color = color or "vscode"
   vim.cmd.colorscheme(color)
 
