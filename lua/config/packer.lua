@@ -3,6 +3,9 @@
 vim.cmd [[packadd packer.nvim]]
 
 require('packer').startup(function(use)
+   -- https://github.com/m4xshen/autoclose.nvim 
+   use 'm4xshen/autoclose.nvim'
+
   -- Packer can manage itself
 	use 'wbthomason/packer.nvim'
 

@@ -1,4 +1,5 @@
 require("vscode").load()
+require("autoclose").setup()
 
 require('telescope').setup{
    defaults = {
@@ -19,4 +20,6 @@ require('telescope').setup{
          },
    }
 }
+
+
 print("Configuration Loaded")
