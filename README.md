@@ -7,6 +7,6 @@ My NeoVim Config
     ~/.local/share/nvim/site/pack/packer/start/packer.nvim
    ```
 2. Open `lua/config/packer.lua` and run `:so`
-3. run `:PackerSyn`
+3. run `:PackerSync`
 4. restart nvim
 
