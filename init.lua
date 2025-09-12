@@ -35,6 +35,9 @@ vim.opt.isfname:append('@-@')
 vim.opt.updatetime = 50
 vim.opt.colorcolumn = '80'
 
+-- Blinking Curser
+vim.opt.guicursor = 'n-v-c:block-blinkwait700-blinkoff400-blinkon250,i:ver25-blinkwait700-blinkoff400-blinkon250'
+
 -- HotKey Changes
 vim.g.mapleader = ' '
 vim.keymap.set('n', '<leader><leader>', vim.cmd.Ex)
@@ -64,6 +67,7 @@ vim.keymap.set('n', '<leader>yy', '"+yy')
 
 -- Toggling Spell Checker
 vim.api.nvim_set_keymap('n', '<leader>s', ':set spell!<CR>', { noremap = true, silent = true })
+
 
 require("config")
 require("plugins")
