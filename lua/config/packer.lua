@@ -3,9 +3,6 @@
 vim.cmd [[packadd packer.nvim]]
 
 require('packer').startup(function(use)
-   -- https://github.com/m4xshen/autoclose.nvim 
-   use 'm4xshen/autoclose.nvim'
-
   -- Packer can manage itself
 	use 'wbthomason/packer.nvim'
 
@@ -16,6 +13,7 @@ require('packer').startup(function(use)
    use 'Nate96/journal.nvim'
 
 
+   -- ====== THEMES =====
    -- vs code theme
    -- https://github.com/Mofiqul/vscode.nvim
 	use 'Mofiqul/vscode.nvim'
@@ -27,6 +25,11 @@ require('packer').startup(function(use)
          ts_update()
       end,
    }
+
+   -- Night Fox
+   -- https://github.com/EdenEast/nightfox.nvim
+   use "EdenEast/nightfox.nvim"
+
 
    -- Navigating files faster
    -- https://github.com/ThePrimeagen/harpoon

@@ -71,3 +71,8 @@ vim.api.nvim_set_keymap('n', '<leader>s', ':set spell!<CR>', { noremap = true, s
 
 require("config")
 require("plugins")
+
+-- Sourcing for Vim Plug
+local vimrc = vim.fn.stdpath("config") .. "/vimrc.vim"
+vim.cmd.source(vimrc)
+

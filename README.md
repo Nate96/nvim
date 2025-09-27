@@ -6,7 +6,12 @@ My NeoVim Config
    git clone --depth 1 https://github.com/wbthomason/packer.nvim\
     ~/.local/share/nvim/site/pack/packer/start/packer.nvim
    ```
-2. Open `lua/config/packer.lua` and run `:so`
-3. run `:PackerSync`
-4. restart nvim
+2. Install Vim Plug
+   ```bash
+    curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs\
+        https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+   ```
+3. Open `lua/config/packer.lua` and run `:so`
+4. run `:PackerSync`
+5. restart nvim
 
