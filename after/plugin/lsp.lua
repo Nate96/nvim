@@ -72,6 +72,8 @@ vim.diagnostic.config({
 
 
 -- Configure marksman LSP
+-- vim.lsp.config(marskman, NOTE: when changes are made need to place with the 
+--                                line below
 require("lspconfig").marksman.setup{
   completion = ...,
   on_attach = ...,

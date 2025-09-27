@@ -79,11 +79,6 @@ _G.packer_plugins = {
     path = "/home/knight/.local/share/nvim/site/pack/packer/start/LuaSnip",
     url = "https://github.com/L3MON4D3/LuaSnip"
   },
-  ["autoclose.nvim"] = {
-    loaded = true,
-    path = "/home/knight/.local/share/nvim/site/pack/packer/start/autoclose.nvim",
-    url = "https://github.com/m4xshen/autoclose.nvim"
-  },
   ["cmp-nvim-lsp"] = {
     loaded = true,
     path = "/home/knight/.local/share/nvim/site/pack/packer/start/cmp-nvim-lsp",
