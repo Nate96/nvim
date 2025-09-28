@@ -7,3 +7,10 @@ vim.keymap.set('n', '<leader>m', function () J.jump_to_log_type() end)
 
 vim.api.nvim_create_user_command("CleanJournal", function() J.clean_journal() end, {})
 vim.api.nvim_create_user_command("Today", function() J.jump_to_today() end, {})
+
+function InsertTimestamp()
+    local timestamp = os.date("%Y-%m-%d %H:%M:%S")
+    vim.api.nvim_put({timestamp}, 'c', true, true)
+end
+
+vim.api.nvim_set_keymap('n', '<leader>tt', '<cmd>lua InsertTimestamp()<CR>', { noremap = true, silent = true })
