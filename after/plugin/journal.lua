@@ -9,7 +9,7 @@ vim.api.nvim_create_user_command("CleanJournal", function() J.clean_journal() en
 vim.api.nvim_create_user_command("Today", function() J.jump_to_today() end, {})
 
 function InsertTimestamp()
-    local timestamp = os.date("%Y-%m-%d %H:%M:%S")
+    local timestamp = os.date("%A %Y-%m-%d %I:%M %p")
     vim.api.nvim_put({timestamp}, 'c', true, true)
 end
 
