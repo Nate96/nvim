@@ -37,6 +37,7 @@ require'packer'.startup(function(use)
     -- or                            , branch = '0.1.x',
       requires = { { 'nvim-lua/plenary.nvim' } }
   }
+  use 'nvim-telescope/telescope-borderless.nvim'
 
   -- Lsp
   use {
@@ -54,6 +55,8 @@ require'packer'.startup(function(use)
       { 'L3MON4D3/LuaSnip' },   -- Required
     }
   }
+
+use { "github/copilot.vim" }
 
 end)
 

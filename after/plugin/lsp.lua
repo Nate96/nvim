@@ -75,8 +75,6 @@ vim.diagnostic.config({
 -- vim.lsp.config(marskman, NOTE: when changes are made need to place with the 
 --                                line below
 require("lspconfig").marksman.setup{
-  completion = ...,
-  on_attach = ...,
   settings = {
    diagnostics = {
      disable = {"trailing-space"}
