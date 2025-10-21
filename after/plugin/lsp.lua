@@ -25,7 +25,12 @@ local cmp_mappings = lsp.defaults.cmp_mappings({
 cmp_mappings['<S-Tab>'] = nil
 
 lsp.setup_nvim_cmp({
-  mapping = cmp_mappings
+  mapping = cmp_mappings,
+  sources = {
+    {name = 'nvim_lsp'},
+    {name = 'dadbod'},
+    {name = 'luasnip'},
+  },
 })
 
 lsp.set_preferences({
