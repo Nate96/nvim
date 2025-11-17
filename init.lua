@@ -38,12 +38,16 @@ vim.opt.colorcolumn = '80'
 -- Blinking Curser
 vim.opt.guicursor = 'n-v-c:block-blinkwait700-blinkoff400-blinkon250,i:ver25-blinkwait700-blinkoff400-blinkon250'
 
--- HotKey Changes
+--============================= KEYBINDINGS ===================================
 vim.g.mapleader = ' '
 vim.keymap.set('n', '<leader><leader>', vim.cmd.Ex)
 vim.keymap.set('n', '<leader>f', vim.lsp.buf.format)
 
--- Remap for navigating windows
+-- Paging up and down
+vim.keymap.set({'n', 'v', 's', 'o'}, '<C-j>', '<C-d>') -- half down 
+vim.keymap.set({'n', 'v', 's', 'o'}, '<C-k>', '<C-u>') -- half up
+
+-- navigating windows
 vim.keymap.set('n', '<leader>ws', '<C-w>s') -- split vertically
 vim.keymap.set('n', '<leader>wv', '<C-w>v') -- split horizontally
 vim.keymap.set('n', '<leader>wq', '<C-w>q') -- quit window
@@ -52,7 +56,7 @@ vim.keymap.set('n', '<leader>wj', '<C-w>j') -- move down
 vim.keymap.set('n', '<leader>wk', '<C-w>k') -- move up
 vim.keymap.set('n', '<leader>wl', '<C-w>l') -- move right
 
--- Remap for resizing windows
+-- resizing windows
 vim.keymap.set('n', '<leader>w,', '10<C-w><') -- Decrease pane width by 10
 vim.keymap.set('n', '<leader>w.', '10<C-w>>') -- Increase pane width by 10
 vim.keymap.set('n', '<leader>w+', '5<C-w>+')  -- Increase pane hight by 5
@@ -67,6 +71,7 @@ vim.keymap.set('n', '<leader>yy', '"+yy')
 
 -- Toggling Spell Checker
 vim.api.nvim_set_keymap('n', '<leader>s', ':set spell!<CR>', { noremap = true, silent = true })
+--============================================================================= 
 
 require("config")
 require("plugins")
@@ -74,4 +79,3 @@ require("plugins")
 -- Sourcing for Vim Plug
 local vimrc = vim.fn.stdpath("config") .. "/vimrc.vim"
 vim.cmd.source(vimrc)
-
