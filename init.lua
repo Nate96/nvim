@@ -1,5 +1,14 @@
 print("Welcome", '\n', '\n')
 
+local file_path = "./cover.txt"
+local file = io.open(file_path, "r")
+
+if file then
+    print(file:read("*all"))
+    file:close()
+ end
+
+
 print("        / <     >\\")
 print("       / /      \\ \\")
 print("      ( (_______) )")
@@ -33,7 +42,8 @@ vim.opt.wrap = false
 vim.opt.scrolloff = 99
 vim.opt.isfname:append('@-@')
 vim.opt.updatetime = 50
-vim.opt.colorcolumn = '80'
+vim.opt.colorcolumn = '120'
+vim.opt.cursorline = true
 
 -- Blinking Curser
 vim.opt.guicursor = 'n-v-c:block-blinkwait700-blinkoff400-blinkon250,i:ver25-blinkwait700-blinkoff400-blinkon250'
@@ -71,6 +81,12 @@ vim.keymap.set('n', '<leader>yy', '"+yy')
 
 -- Toggling Spell Checker
 vim.api.nvim_set_keymap('n', '<leader>s', ':set spell!<CR>', { noremap = true, silent = true })
+
+-- remove highlight
+vim.keymap.set('n', '<ESC>', ':nohl<CR>')
+
+-- terminal mode escape
+vim.keymap.set('t', '<ESC>', '<C-\\><C-n>')
 --============================================================================= 
 
 require("config")
