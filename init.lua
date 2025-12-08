@@ -8,23 +8,6 @@ if file then
     file:close()
  end
 
-
-print("        / <     >\\")
-print("       / /      \\ \\")
-print("      ( (_______) )")
-print("       |         |")
-print("       |  _   _  |")
-print("       | / \\ / \\ |")
-print("       : \\_/ \\_/ ;")
-print("        \\_______/")
-print("(~~~~~~~~/ /  \\~~~~~~~~~)")
-print("|~~~~~~~|/  /\\ |~~~~~~~~|")
-print("|~~~~~~~|  /\\ \\|~~~~~~~~|")
-print("//      |//  \\ |       \\\\")
-print("---------||-||-----------")
-print("||]      v   v        [||")
-print("||                     || ", '\n', '\n')
-
 vim.wo.relativenumber = true
 vim.wo.number = true
 vim.opt.expandtab = true
