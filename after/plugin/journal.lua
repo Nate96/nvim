@@ -15,12 +15,11 @@ end
 
 vim.api.nvim_set_keymap('n', '<leader>tt', '<cmd>lua InsertTimestamp()<CR>', { noremap = true, silent = true })
 
-
 local timer = nil
-local buf = nil
+local log_buf = nil
 
-local function toggle_timer()
-    -- 1. If timer is already running, stop it
+local function toggle_vertical_timer()
+    -- 1. Stop if running
     if timer then
         timer:stop()
         timer:close()
@@ -29,23 +28,40 @@ local function toggle_timer()
         return
     end
 
-    -- 2. Setup buffer if it doesn't exist
-    if not buf or not vim.api.nvim_buf_is_valid(buf) then
-        buf = vim.api.nvim_create_buf(false, true)
-        vim.api.nvim_command('sb' .. buf) -- Open in a horizontal split
+    -- 2. Create buffer if it doesn't exist or isn't valid
+    if not log_buf or not vim.api.nvim_buf_is_valid(log_buf) then
+        log_buf = vim.api.nvim_create_buf(false, true) -- (listed=false, scratch=true)
+        vim.api.nvim_buf_set_name(log_buf, "Timer_Log")
     end
 
-    -- 3. Start the timer
+    -- 3. Open in a vertical split
+    -- 'vsplit' opens a new window; 'b' then loads our buffer into it
+    vim.cmd('vsplit')
+    vim.api.nvim_win_set_buf(0, log_buf)
+
+    -- 4. Start the timer
     timer = vim.loop.new_timer()
     local count = 0
+
     timer:start(0, 1000, vim.schedule_wrap(function()
+        if not vim.api.nvim_buf_is_valid(log_buf) then return end
+
         count = count + 1
-        local msg = "Tick " .. count .. " at " .. os.date("%H:%M:%S")
-        vim.api.nvim_buf_set_lines(buf, -1, -1, false, { msg })
+        local msg = string.format("[%d] %s", count, os.date("%H:%M:%S"))
+
+        -- Append line to the end
+        vim.api.nvim_buf_set_lines(log_buf, -1, -1, false, { msg })
+
+        -- Auto-scroll to the bottom of the window
+        local win = vim.fn.bufwinid(log_buf)
+        if win ~= -1 then
+            local line_count = vim.api.nvim_buf_line_count(log_buf)
+            vim.api.nvim_win_set_cursor(win, { line_count, 0 })
+        end
     end))
-    print("Timer Started")
+
+    print("Timer Started in Vertical Split")
 end
 
--- FIX: Pass the function name directly or wrap it in a function() block
-vim.keymap.set('n', '<leader>t', toggle_timer, { desc = "Toggle buffer timer" })
-
+-- Keymap to trigger
+vim.keymap.set('n', '<leader>t', toggle_vertical_timer, { desc = "Toggle vertical timer log" })
