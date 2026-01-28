@@ -1,6 +1,6 @@
 print("Welcome", '\n', '\n')
 
-local file_path = "./cover.txt"
+local file_path = "/Users/nbraukhoff/.config/nvim/cover.txt"
 local file = io.open(file_path, "r")
 
 if file then

@@ -18,7 +18,21 @@ iron.setup {
         format = common.bracketed_paste_python,
         block_dividers = { "# %%", "#%%" },
         env = {PYTHON_BASIC_REPL = "1"} --this is needed for python3.13 and up.
+      },
+      lua = {
+        command = {"lua"},
+        block_dividers = { "-- %%", "--%%" },
+      },
+      node = {
+        command = {"node", "--interactive"},
+        format = common.bracketed_paste_js,
+        block_dividers = { "// %%", "//%%" },
+      },
+      dads_genai = {
+        command = {"/Users/nbraukhoff/generative-ai-poc/env/bin/python"},
+        format = common.bracketed_paste_python,
       }
+
     },
     -- set the file type of the newly created repl to ft
     -- bufnr is the buffer id of the REPL and ft is the filetype of the 
