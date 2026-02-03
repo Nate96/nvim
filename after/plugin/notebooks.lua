@@ -32,8 +32,8 @@ iron.setup {
         command = {"/Users/nbraukhoff/generative-ai-poc/.venv/bin/ipython3"},
         format = common.bracketed_paste_python,
       }
-
     },
+
     -- set the file type of the newly created repl to ft
     -- bufnr is the buffer id of the REPL and ft is the filetype of the 
     -- language being used for the REPL. 
