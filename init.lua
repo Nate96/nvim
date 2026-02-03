@@ -1,6 +1,6 @@
 print("Welcome", '\n', '\n')
 
-local file_path = "./cover.txt"
+local file_path = "/home/knight/.config/nvim/./cover.txt"
 local file = io.open(file_path, "r")
 
 if file then
@@ -40,6 +40,9 @@ vim.keymap.set('n', '<leader>f', vim.lsp.buf.format)
 vim.keymap.set({'n', 'v', 's', 'o'}, '<C-j>', '<C-d>') -- half down 
 vim.keymap.set({'n', 'v', 's', 'o'}, '<C-k>', '<C-u>') -- half up
 
+-- Optional: Map it for Insert and Visual modes as well
+vim.keymap.set({ 'n', 'i', 'v' }, '<C-z>', '<Esc>:wa | sus <CR>', { desc = 'Save all buffers' })
+
 -- navigating windows
 vim.keymap.set('n', '<leader>ws', '<C-w>s') -- split vertically
 vim.keymap.set('n', '<leader>wv', '<C-w>v') -- split horizontally
@@ -70,6 +73,9 @@ vim.keymap.set('n', '<ESC>', ':nohl<CR>')
 
 -- terminal mode escape
 vim.keymap.set('t', '<ESC>', '<C-\\><C-n>')
+
+-- Leader + z suspends
+vim.keymap.set('n', '<leader>z', ':sus<CR>', { desc = 'Suspend Neovim' })
 --============================================================================= 
 
 require("config")
