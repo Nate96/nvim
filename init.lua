@@ -1,6 +1,6 @@
 print("Welcome", '\n', '\n')
 
-local file_path = "/home/knight/.config/nvim/./cover.txt"
+local file_path = "./"
 local file = io.open(file_path, "r")
 
 if file then
@@ -41,7 +41,7 @@ vim.keymap.set({'n', 'v', 's', 'o'}, '<C-j>', '<C-d>') -- half down
 vim.keymap.set({'n', 'v', 's', 'o'}, '<C-k>', '<C-u>') -- half up
 
 -- Optional: Map it for Insert and Visual modes as well
-vim.keymap.set({ 'n', 'i', 'v' }, '<C-z>', '<Esc>:wa | sus <CR>', { desc = 'Save all buffers' })
+vim.keymap.set({ 'n', 'i', 'v' }, '<C-z>', '<Esc>:wa! | sus <CR>', { desc = 'Save all buffers' })
 
 -- navigating windows
 vim.keymap.set('n', '<leader>ws', '<C-w>s') -- split vertically
