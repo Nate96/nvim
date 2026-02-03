@@ -29,7 +29,7 @@ iron.setup {
         block_dividers = { "// %%", "//%%" },
       },
       dads_genai = {
-        command = {"/Users/nbraukhoff/generative-ai-poc/env/bin/python"},
+        command = {"/Users/nbraukhoff/generative-ai-poc/.venv/bin/ipython3"},
         format = common.bracketed_paste_python,
       }
 
