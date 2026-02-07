@@ -68,6 +68,11 @@ use { "github/copilot.vim" }
     },
   }
 
+-- Note Books
+-- https://github.com/Vigemus/iron.nvim
+use {'Vigemus/iron.nvim'}
+
 end)
+
 
 print("Go Pack Go!!!")
