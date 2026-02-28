@@ -1,6 +1,6 @@
 print("Welcome", '\n', '\n')
 
-local file_path = "/home/robert/.config/nvim/init.lua"
+local file_path = "/home/jade/.config/nvim/cover.txt"
 local file = io.open(file_path, "r")
 
 if file then
