@@ -43,20 +43,13 @@ vim.keymap.set({'n', 'v', 's', 'o'}, '<C-k>', '<C-u>') -- half up
 -- Optional: Map it for Insert and Visual modes as well
 vim.keymap.set({ 'n', 'i', 'v' }, '<C-z>', '<Esc>:wa! | sus <CR>', { desc = 'Save all buffers' })
 
--- navigating windows
-vim.keymap.set('n', '<leader>ws', '<C-w>s') -- split vertically
-vim.keymap.set('n', '<leader>wv', '<C-w>v') -- split horizontally
-vim.keymap.set('n', '<leader>wq', '<C-w>q') -- quit window
-vim.keymap.set('n', '<leader>wh', '<C-w>h') -- move left
-vim.keymap.set('n', '<leader>wj', '<C-w>j') -- move down
-vim.keymap.set('n', '<leader>wk', '<C-w>k') -- move up
-vim.keymap.set('n', '<leader>wl', '<C-w>l') -- move right
+vim.keymap.set('n', '<C-\\>', '<C-w>v') -- split vertically
 
 -- resizing windows
-vim.keymap.set('n', '<leader>w,', '10<C-w><') -- Decrease pane width by 10
-vim.keymap.set('n', '<leader>w.', '10<C-w>>') -- Increase pane width by 10
-vim.keymap.set('n', '<leader>w+', '5<C-w>+')  -- Increase pane hight by 5
-vim.keymap.set('n', '<leader>w_', '5<C-w>-')  -- Decrease pane hight by 5
+vim.keymap.set('n', '<C-w><', '10<C-w><') -- Decrease pane width by 10
+vim.keymap.set('n', '<C-w>>', '10<C-w>>') -- Increase pane width by 10
+vim.keymap.set('n', '<C-w>+', '5<C-w>+')  -- Increase pane hight by 5
+vim.keymap.set('n', '<C-w>-', '5<C-w>-')  -- Decrease pane hight by 5
 
 -- windows block mode
 vim.keymap.set('n', '<leader>v', '<C-v>')

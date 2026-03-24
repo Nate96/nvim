@@ -22,10 +22,19 @@ require('vscode').setup {
 }
 
 require'telescope'.setup {
+   pickers = {
+      find_files = {
+         find_command = {'rg', '--files', '--hidden'},
+      },
+      live_grep = {
+         additional_args = function()
+            return { "--hidden" }
+         end
+      },
+   },
    defaults = {
       file_ignore_patterns = {
          "node_modules",
-         ".git"
       },
       layout_strategy = "flex",
       -- Custom Layout
