@@ -1,7 +1,7 @@
 require 'telescope'.setup {
    pickers = {
       find_files = {
-         find_command = { 'rg', '--files'},
+         find_command = { 'rg', '--files' },
       },
       live_grep = {
          additional_args = function()
@@ -49,5 +49,11 @@ vim.keymap.set('n', '<leader>fb', builtin.buffers, {})
 vim.keymap.set('n', '<leader>fH', builtin.help_tags, {})
 vim.keymap.set('n', '<leader>fr', builtin.resume, {})
 vim.keymap.set('n', '<leader>fg', function()
-    builtin.find_files({ hidden = true, no_ignore = true, find_command = { 'rg', '--files', '--hidden' } })
-end, {})
+   builtin.find_files(
+      {
+         prompt_title = "+ hidden files",
+         hidden = true,
+         no_ignore = true,
+         find_command = { 'rg', '--files', '--hidden' }
+      })
+end)
