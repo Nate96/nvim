@@ -1,24 +1,13 @@
 require'vscode'.load()
 
+-- light or dark
 vim.o.background = 'dark'
---vim.o.background = 'light'
+require('vscode.colors').get_colors()
 
-local c = require('vscode.colors').get_colors()
 require('vscode').setup {
   transparent = true,
+  float = { transparent = true },
   italic_comments = true,
-
-  -- Override colors (see ./lua/vscode/colors.lua)
-  color_overrides = {
-    vscLineNumber = '#FFFFFF',
-  },
-
-  -- Override highlight groups (see ./lua/vscode/theme.lua)
-  group_overrides = {
-    -- this supports the same val table as vim.api.nvim_set_hl
-    -- use colors from this colorscheme by requiring vscode.colors!
-    Cursor = { fg = c.vscDarkBlue, bg = c.vscLightGreen, bold = true },
-  }
 }
 
 require'telescope'.setup {
@@ -33,17 +22,32 @@ require'telescope'.setup {
       },
    },
    defaults = {
+      mappings = {
+         i = {
+            ['<C-p>'] = require('telescope.actions.layout').toggle_preview
+         },
+         n = {
+            ['<C-p>'] = require('telescope.actions.layout').toggle_preview,
+            ["<C-j>"] = require("telescope.actions").preview_scrolling_down,
+            ["<C-k>"] = require("telescope.actions").preview_scrolling_up,
+         }
+      },
+      preview = {
+         hide_on_startup = true -- hide previewer when picker starts
+      },
       file_ignore_patterns = {
          "node_modules",
       },
-      layout_strategy = "vertical",
+      sorting_strategy = "ascending",
+      layout_strategy = "flex",
       layout_config = {
          horizontal = {
-            prompt_position = "bottom",
-            preview_width = 0.40,
+            prompt_position = "top",
+            preview_width = 0.65,
          },
          vertical = {
-            prompt_position = "bottom",
+            prompt_position = "top",
+            preview_hieght = 0.90,
          },
       },
 
