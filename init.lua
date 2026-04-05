@@ -79,22 +79,4 @@ require("plugins")
 local vimrc = vim.fn.stdpath("config") .. "/vimrc.vim"
 vim.cmd.source(vimrc)
 
--- Transparent background
--- require("catppuccin").setup({
---     transparent_background = true,
---     float = { transparent = true },
--- })
--- 
--- require("everforest").setup({
---     transparent_background = true,
---     float = { transparent = true },
--- })
-
-vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
-vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none" })
-vim.api.nvim_set_hl(0, 'LineNr', { bg = "none", fg = "gray" })
-vim.api.nvim_set_hl(0, 'CursorLine', { bg = "none", underline = true, sp = "gray" })
-vim.api.nvim_set_hl(0, 'CursorLineNr', { bg = "none", fg = "white", bold = true })
-
-
 vim.cmd.colorscheme("vscode")
