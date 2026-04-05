@@ -36,11 +36,7 @@ require'telescope'.setup {
       file_ignore_patterns = {
          "node_modules",
       },
-      layout_strategy = "flex",
-      -- Custom Layout
-      -- Full screen
-      -- ratio is 25% 75%
-      -- layout_strategy = "horizontal",
+      layout_strategy = "vertical",
       layout_config = {
          horizontal = {
             prompt_position = "bottom",
