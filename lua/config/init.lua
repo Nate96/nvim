@@ -3,7 +3,7 @@ local function apply_transparent_bg()
    vim.api.nvim_set_hl(0, "Normal", { bg = "none", fg = "none" })
    vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none", fg = "none" })
    vim.api.nvim_set_hl(0, 'LineNr', { bg = "none", fg = "gray" })
-   --vim.api.nvim_set_hl(0, 'CursorLine', { bg = "none", underline = true, sp = "gray" })
+   vim.api.nvim_set_hl(0, 'CursorLine', { bg =3684408})
    vim.api.nvim_set_hl(0, 'CursorLineNr', { bg = "none", fg = "white", bold = true })
 
    vim.api.nvim_set_hl(0, "TelescopeBorder", { fg = "none", bg = "none" })
