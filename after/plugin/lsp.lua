@@ -16,17 +16,15 @@ local cmp_select = {behavior = cmp.SelectBehavior.Select}
 local cmp_mappings = lsp.defaults.cmp_mappings({
   ['<C-k>'] = cmp.mapping.select_prev_item(cmp_select),
   ['<C-j>'] = cmp.mapping.select_next_item(cmp_select),
-  ['<S-Tab>'] = cmp.mapping.confirm({ select = true }),
+  ['<Tab>'] = cmp.mapping.confirm({ select = true }),
   ['<C-Space>'] = cmp.mapping.complete(),
 })
-
-cmp_mappings['<Tab>'] = nil
 
 lsp.setup_nvim_cmp({
   mapping = cmp_mappings,
   sources = {
     {name = 'nvim_lsp'},
-    {name = 'dadbod'},
+    {name = 'vim_dadbod_completion'},
     {name = 'luasnip'},
   },
 })

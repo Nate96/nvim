@@ -57,20 +57,23 @@ require'packer'.startup(function(use)
     }
   }
 
-use { "github/copilot.vim" }
+   use { "github/copilot.vim" }
 
-  -- Dadbod
-  use {
-    'tpope/vim-dadbod',
-    requires = {
-      'kristijanhusak/vim-dadbod-ui',
-      'kristijanhusak/vim-dadbod-completion',
-    },
-  }
+     -- Dadbod
+     use {
+       'tpope/vim-dadbod',
+       requires = {
+         'kristijanhusak/vim-dadbod-ui',
+         'kristijanhusak/vim-dadbod-completion',
+       },
+     }
 
--- Note Books
--- https://github.com/Vigemus/iron.nvim
-use {'Vigemus/iron.nvim'}
+   -- Note Books
+   -- https://github.com/Vigemus/iron.nvim
+   use {'Vigemus/iron.nvim'}
+
+   use {'tjdevries/present.nvim'}
+
 
 end)
 

@@ -12,7 +12,8 @@ require 'telescope'.setup {
    defaults = {
       mappings = {
          i = {
-            ['<C-p>'] = require('telescope.actions.layout').toggle_preview
+            ['<C-p>'] = require('telescope.actions.layout').toggle_preview,
+            ['<C-d>'] = require('telescope.actions').to_fuzzy_refine
          },
          n = {
             ['<C-p>'] = require('telescope.actions.layout').toggle_preview,
@@ -44,11 +45,11 @@ require 'telescope'.setup {
 local builtin = require('telescope.builtin')
 
 vim.keymap.set('n', '<leader>ff', builtin.find_files, {})
-vim.keymap.set('n', '<leader>fF', builtin.live_grep, {})
-vim.keymap.set('n', '<leader>fb', builtin.buffers, {})
-vim.keymap.set('n', '<leader>fH', builtin.help_tags, {})
-vim.keymap.set('n', '<leader>fr', builtin.resume, {})
-vim.keymap.set('n', '<leader>fg', function()
+vim.keymap.set('n', '<leader>F', builtin.live_grep, {})
+vim.keymap.set('n', '<leader>b', builtin.buffers, {})
+vim.keymap.set('n', '<leader>H', builtin.help_tags, {})
+vim.keymap.set('n', '<leader>T', builtin.resume, {})
+vim.keymap.set('n', '<leader>h', function()
    builtin.find_files(
       {
          prompt_title = "+ hidden files",

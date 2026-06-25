@@ -23,7 +23,7 @@ vim.opt.termguicolors = true
 vim.opt.wrap = false
 
 -- cursor fixed in center
--- vim.opt.scrolloff = 99
+vim.opt.scrolloff = 99
 vim.opt.isfname:append('@-@')
 vim.opt.updatetime = 50
 vim.opt.colorcolumn = '100'
