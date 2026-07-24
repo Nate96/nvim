@@ -68,8 +68,10 @@ vim.keymap.set('n', '<ESC>', ':nohl<CR>')
 -- terminal mode escape
 vim.keymap.set('t', '<ESC>', '<C-\\><C-n>')
 
--- Leader + z suspends
-vim.keymap.set('n', '<leader>z', ':sus<CR>', { desc = 'Suspend Neovim' })
+vim.api.nvim_create_autocmd("VimResume", {
+   pattern = "*",
+   command = "checktime",
+})
 --=============================================================================
 
 require("config")

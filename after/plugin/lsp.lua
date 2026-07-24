@@ -24,7 +24,6 @@ lsp.setup_nvim_cmp({
   mapping = cmp_mappings,
   sources = {
     {name = 'nvim_lsp'},
-    {name = 'vim_dadbod_completion'},
     {name = 'luasnip'},
   },
 })
