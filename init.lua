@@ -4,9 +4,9 @@ local file_path = "/Users/nbraukhoff/.config/nvim/cover.txt"
 local file = io.open(file_path, "r")
 
 if file then
-    print(file:read("*all"))
-    file:close()
- end
+   print(file:read("*all"))
+   file:close()
+end
 
 vim.wo.relativenumber = true
 vim.wo.number = true
@@ -23,7 +23,7 @@ vim.opt.termguicolors = true
 vim.opt.wrap = false
 
 -- cursor fixed in center
--- vim.opt.scrolloff = 99
+vim.opt.scrolloff = 99
 vim.opt.isfname:append('@-@')
 vim.opt.updatetime = 50
 vim.opt.colorcolumn = '100'
@@ -38,8 +38,8 @@ vim.keymap.set('n', '<leader><leader>', vim.cmd.Ex)
 vim.keymap.set('n', '<leader>f', vim.lsp.buf.format)
 
 -- Paging up and down
-vim.keymap.set({'n', 'v', 's', 'o'}, '<C-j>', '<C-d>') -- half down 
-vim.keymap.set({'n', 'v', 's', 'o'}, '<C-k>', '<C-u>') -- half up
+vim.keymap.set({ 'n', 'v', 's', 'o' }, '<C-j>', '<C-d>') -- half down
+vim.keymap.set({ 'n', 'v', 's', 'o' }, '<C-k>', '<C-u>') -- half up
 
 -- Optional: Map it for Insert and Visual modes as well
 vim.keymap.set({ 'n', 'i', 'v' }, '<C-z>', '<Esc>:wa! | sus <CR>', { desc = 'Save all buffers' })
@@ -68,9 +68,11 @@ vim.keymap.set('n', '<ESC>', ':nohl<CR>')
 -- terminal mode escape
 vim.keymap.set('t', '<ESC>', '<C-\\><C-n>')
 
--- Leader + z suspends
-vim.keymap.set('n', '<leader>z', ':sus<CR>', { desc = 'Suspend Neovim' })
---============================================================================= 
+vim.api.nvim_create_autocmd("VimResume", {
+   pattern = "*",
+   command = "checktime",
+})
+--=============================================================================
 
 require("config")
 require("plugins")

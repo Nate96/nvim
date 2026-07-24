@@ -12,7 +12,8 @@ require 'telescope'.setup {
    defaults = {
       mappings = {
          i = {
-            ['<C-p>'] = require('telescope.actions.layout').toggle_preview
+            ['<C-p>'] = require('telescope.actions.layout').toggle_preview,
+            ['<C-d>'] = require('telescope.actions').to_fuzzy_refine
          },
          n = {
             ['<C-p>'] = require('telescope.actions.layout').toggle_preview,
