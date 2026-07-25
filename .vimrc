@@ -1,68 +1,64 @@
+" ============================= OPTIONS =======================================
 set relativenumber
 set number
-set expandtab 
-
+set expandtab
 set smartindent
+set tabstop=3
+set softtabstop=3
+set shiftwidth=3
+set termguicolors
+set nowrap
 
-" vim.opt.tabstop = 3
-" vim.opt.softtabstop = 3
-" vim.opt.shiftwidth = 3
-" 
-" vim.opt.termguicolors = true
-" 
-" vim.opt.wrap = false
-" 
-set scrolloff = 99
-" vim.opt.isfname:append('@-@')
-" vim.opt.updatetime = 50
-" vim.opt.colorcolumn = '80'
-" vim.opt.cursorline = true
-" 
-" -- Blinking Curser
-" vim.opt.guicursor = 'n-v-c:block-blinkwait700-blinkoff400-blinkon250,i:ver25-blinkwait700-blinkoff400-blinkon250'
-" 
-" --============================= KEYBINDINGS ===================================
-" vim.g.mapleader = ' '
-" vim.keymap.set('n', '<leader><leader>', vim.cmd.Ex)
-" vim.keymap.set('n', '<leader>f', vim.lsp.buf.format)
-" 
-" -- Paging up and down
-" vim.keymap.set({'n', 'v', 's', 'o'}, '<C-j>', '<C-d>') -- half down 
-" vim.keymap.set({'n', 'v', 's', 'o'}, '<C-k>', '<C-u>') -- half up
-" 
-" -- Optional: Map it for Insert and Visual modes as well
-" vim.keymap.set({ 'n', 'i', 'v' }, '<C-z>', '<Esc>:wa! | sus <CR>', { desc = 'Save all buffers' })
-" 
-" -- navigating windows
-" vim.keymap.set('n', '<leader>ws', '<C-w>s') -- split vertically
-" vim.keymap.set('n', '<leader>wv', '<C-w>v') -- split horizontally
-" vim.keymap.set('n', '<leader>wq', '<C-w>q') -- quit window
-" vim.keymap.set('n', '<leader>wh', '<C-w>h') -- move left
-" vim.keymap.set('n', '<leader>wj', '<C-w>j') -- move down
-" vim.keymap.set('n', '<leader>wk', '<C-w>k') -- move up
-" vim.keymap.set('n', '<leader>wl', '<C-w>l') -- move right
-" 
-" -- resizing windows
-" vim.keymap.set('n', '<leader>w,', '10<C-w><') -- Decrease pane width by 10
-" vim.keymap.set('n', '<leader>w.', '10<C-w>>') -- Increase pane width by 10
-" vim.keymap.set('n', '<leader>w+', '5<C-w>+')  -- Increase pane hight by 5
-" vim.keymap.set('n', '<leader>w_', '5<C-w>-')  -- Decrease pane hight by 5
-" 
-" -- windows block mode
-" vim.keymap.set('n', '<leader>v', '<C-v>')
-" 
-" -- yanking text to system
-" vim.keymap.set('v', '<leader>y', '"+y')
-" vim.keymap.set('n', '<leader>yy', '"+yy')
-" 
-" -- Toggling Spell Checker
-" vim.api.nvim_set_keymap('n', '<leader>s', ':set spell!<CR>', { noremap = true, silent = true })
-" 
-" -- remove highlight
-" vim.keymap.set('n', '<ESC>', ':nohl<CR>')
-" 
-" -- terminal mode escape
-" vim.keymap.set('t', '<ESC>', '<C-\\><C-n>')
-" 
-" -- Leader + z suspends
-" vim.keymap.set('n', '<leader>z', ':sus<CR>', { desc = 'Suspend Neovim' })
+" cursor fixed in center
+set scrolloff=99
+set isfname+=@-@
+set updatetime=50
+set colorcolumn=80
+set cursorline
+
+" Blinking Cursor
+set guicursor=n-v-c:block-blinkwait700-blinkoff400-blinkon250,i:ver25-blinkwait700-blinkoff400-blinkon250
+
+" ============================= KEYBINDINGS ===================================
+let g:mapleader = " "
+
+" Open File Explorer
+nnoremap <leader><leader> :Ex<CR>
+
+" LSP Format Note: Standard Vim does not have built-in Neovim LSP. 
+" This will only work if you are using this as an init.vim in Neovim.
+nnoremap <leader>f :lua vim.lsp.buf.format()<CR>
+
+" Paging up and down
+noremap <C-j> <C-d>
+noremap <C-k> <C-u>
+
+" Save all buffers
+nnoremap <C-z> <Esc>:wa! \| sus <CR>
+inoremap <C-z> <Esc>:wa! \| sus <CR>
+vnoremap <C-z> <Esc>:wa! \| sus <CR>
+
+" split vertically
+nnoremap <C-\> <C-w>v
+
+" resizing windows
+nnoremap <C-w>< 10<C-w><
+nnoremap <C-w>> 10<C-w>>
+nnoremap <C-w>+ 5<C-w>+
+nnoremap <C-w>- 5<C-w>-
+
+" windows block mode
+nnoremap <leader>v <C-v>
+
+" yanking text to system
+vnoremap <leader>y "+y
+nnoremap <leader>yy "+yy
+
+" Toggling Spell Checker
+nnoremap <silent> <leader>s :set spell!<CR>
+
+" remove highlight
+nnoremap <ESC> :nohl<CR>
+
+" terminal mode escape
+tnoremap <ESC> <C-\><C-n>

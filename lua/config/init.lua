@@ -18,11 +18,7 @@ vim.api.nvim_create_autocmd("ColorScheme", {
    callback = apply_transparent_bg,
 })
 
---
-
-require 'vscode'.load()
-require('vscode.colors').get_colors()
-
+vim.cmd.colorscheme("vscode")
 require('vscode').setup {
    transparent = true,
    float = { transparent = true },
@@ -68,5 +64,8 @@ gitsigns.setup {
    end,
 }
 end
+
+require("plugins")
+require("local")
 
 print("Configuration Loaded")
