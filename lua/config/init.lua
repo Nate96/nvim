@@ -1,3 +1,10 @@
+-- Auto read file when changed outside of vim and when `fg`
+vim.opt.autoread = true
+vim.api.nvim_create_autocmd("VimResume", {
+   pattern = "*",
+   command = "checktime",
+})
+
 -- Transparent brackground as default for any things that support it
 local function apply_transparent_bg()
    vim.api.nvim_set_hl(0, "Normal", { bg = "none", fg = "none" })
