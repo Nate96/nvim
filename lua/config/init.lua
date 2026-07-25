@@ -25,12 +25,16 @@ vim.api.nvim_create_autocmd("ColorScheme", {
    callback = apply_transparent_bg,
 })
 
-vim.cmd.colorscheme("vscode")
+
+require'vscode'.load()
+require'vscode.colors'.get_colors()
 require('vscode').setup {
    transparent = true,
    float = { transparent = true },
    italic_comments = true,
 }
+
+vim.cmd.colorscheme("vscode")
 
 require 'nvim-treesitter.configs'.setup {
    sync_install = true,
@@ -49,7 +53,7 @@ if not ok then
 else
 gitsigns.setup {
    signs = {
-      add          = { text = '│' },
+      add          = { text = '+' },
       change       = { text = '│' },
       delete       = { text = '_' },
       topdelete    = { text = '‾' },
