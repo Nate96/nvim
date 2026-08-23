@@ -49,7 +49,7 @@ vim.keymap.set('n', '<leader>F', builtin.live_grep, {})
 vim.keymap.set('n', '<leader>b', builtin.buffers, {})
 vim.keymap.set('n', '<leader>H', builtin.help_tags, {})
 vim.keymap.set('n', '<leader>T', builtin.resume, {})
-vim.keymap.set('n', '<leader>h', function()
+vim.keymap.set('n', '<leader>fh', function()
    builtin.find_files(
       {
          prompt_title = "+ hidden files",
