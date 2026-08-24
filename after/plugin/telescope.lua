@@ -19,6 +19,7 @@ require 'telescope'.setup {
             ['<C-p>'] = require('telescope.actions.layout').toggle_preview,
             ["<C-j>"] = require("telescope.actions").preview_scrolling_down,
             ["<C-k>"] = require("telescope.actions").preview_scrolling_up,
+            ['<C-d>'] = require('telescope.actions').to_fuzzy_refine
          }
       },
       preview = {
