@@ -56,8 +56,6 @@ require'packer'.startup(function(use)
     }
   }
 
-   use { "github/copilot.vim" }
-
    -- Note Books
    -- https://github.com/Vigemus/iron.nvim
    use {'Vigemus/iron.nvim'}
