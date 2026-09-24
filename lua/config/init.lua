@@ -68,10 +68,10 @@ gitsigns.setup {
 
       map('n', ']h', gs.next_hunk, 'Next hunk')
       map('n', '[h', gs.prev_hunk, 'Prev hunk')
-      map('n', '<leader>hs', gs.stage_hunk, 'Stage hunk')
-      map('n', '<leader>hr', gs.reset_hunk, 'Reset hunk')
-      map('n', '<leader>hb', gs.blame_line, 'Blame line')
-      map('n', '<leader>hd', gs.diffthis, 'Diff this')
+      -- map('n', '<leader>hs', gs.stage_hunk, 'Stage hunk')
+      -- map('n', '<leader>hr', gs.reset_hunk, 'Reset hunk')
+      -- map('n', '<leader>hb', gs.blame_line, 'Blame line')
+      -- map('n', '<leader>hd', gs.diffthis, 'Diff this')
    end,
 }
 end

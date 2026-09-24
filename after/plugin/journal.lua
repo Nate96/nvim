@@ -49,3 +49,9 @@ end
 -- FIX: Pass the function name directly or wrap it in a function() block
 vim.keymap.set('n', '<leader>t', toggle_timer, { desc = "Toggle buffer timer" })
 
+-- wrap at 80
+vim.keymap.set("n", "<leader>mw",
+  ":%!prettier --prose-wrap always --print-width 80 --parser markdown<CR>")
+-- unwrap to one line
+vim.keymap.set("n", "<leader>mu",
+  ":%!prettier --prose-wrap never --parser markdown<CR>")
