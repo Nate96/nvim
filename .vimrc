@@ -3,11 +3,12 @@ set relativenumber
 set number
 set expandtab
 set smartindent
-set tabstop=3
-set softtabstop=3
-set shiftwidth=3
+set tabstop=4
+set softtabstop=4
+set shiftwidth=4
 set termguicolors
 set nowrap
+set linebreak
 
 " cursor fixed in center
 set scrolloff=99
