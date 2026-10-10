@@ -9,7 +9,7 @@ vim.api.nvim_create_user_command("CleanJournal", function() J.clean_journal() en
 vim.api.nvim_create_user_command("Today", function() J.jump_to_today() end, {})
 
 function InsertTimestamp()
-    local timestamp = os.date("%A %Y-%m-%d %I:%M %p")
+    local timestamp = os.date("[[%Y-%m-%d %A]]")
     vim.api.nvim_put({timestamp}, 'c', true, true)
 end
 
@@ -47,7 +47,7 @@ local function toggle_timer()
 end
 
 -- FIX: Pass the function name directly or wrap it in a function() block
-vim.keymap.set('n', '<leader>t', toggle_timer, { desc = "Toggle buffer timer" })
+vim.keymap.set('n', '<leader>T', toggle_timer, { desc = "Toggle buffer timer" })
 
 -- wrap at 80
 vim.keymap.set("n", "<leader>mw",

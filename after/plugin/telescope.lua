@@ -3,6 +3,12 @@ require 'telescope'.setup {
       find_files = {
          find_command = { 'rg', '--files' },
       },
+      buffers = {
+         mappings = {
+            i = { ['<M-d>'] = require('telescope.actions').delete_buffer },
+            n = { ['dd'] = require('telescope.actions').delete_buffer },
+         },
+      },
       live_grep = {
          additional_args = function()
             return { "--hidden" }
@@ -45,12 +51,12 @@ require 'telescope'.setup {
 
 local builtin = require('telescope.builtin')
 
-vim.keymap.set('n', '<leader>ff', builtin.find_files, {})
-vim.keymap.set('n', '<leader>F', builtin.live_grep, {})
+vim.keymap.set('n', '<leader>f.', builtin.find_files, {})
+vim.keymap.set('n', '<leader>F.', builtin.live_grep, {})
 vim.keymap.set('n', '<leader>b', builtin.buffers, {})
 vim.keymap.set('n', '<leader>H', builtin.help_tags, {})
-vim.keymap.set('n', '<leader>T', builtin.resume, {})
-vim.keymap.set('n', '<leader>g', builtin.git_status, {})
+vim.keymap.set('n', '<leader>t', builtin.resume, {})
+vim.keymap.set('n', '<leader>fg', builtin.git_status, {})
 vim.keymap.set('n', '<leader>fh', function()
    builtin.find_files(
       {
@@ -60,3 +66,4 @@ vim.keymap.set('n', '<leader>fh', function()
          find_command = { 'rg', '--files', '--hidden' }
       })
 end)
+
