@@ -27,10 +27,6 @@ iron.setup {
             format = common.bracketed_paste_js,
             block_dividers = { "// %%", "//%%" },
          },
-         dads_genai = {
-            command = { "/Users/nbraukhoff/generative-ai-poc/.venv/bin/ipython3" },
-            format = common.bracketed_paste_python,
-         },
          markdown = {
             command = { "python3" }, -- or { "ipython", "--no-autoindent" }
             format = common.bracketed_paste_python,
