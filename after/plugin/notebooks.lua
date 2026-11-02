@@ -1,6 +1,16 @@
 local iron = require("iron.core")
 local common = require("iron.fts.common")
 
+-- Use the nearest .venv above the current buffer, else system python3.
+local function venv_python()
+   local start = vim.fs.dirname(vim.api.nvim_buf_get_name(0))
+   if start == nil or start == "" then start = vim.fn.getcwd() end
+   local venv = vim.fs.find(".venv", { path = start, upward = true, type = "directory" })[1]
+   local py = venv and (venv .. "/bin/python3")
+   if py and vim.fn.executable(py) == 1 then return { py } end
+   return { "python3" }
+end
+
 iron.setup {
    config = {
       -- Whether a repl should be discarded or not
@@ -13,7 +23,7 @@ iron.setup {
             command = { "zsh" }
          },
          python = {
-            command = { "python3" }, -- or { "ipython", "--no-autoindent" }
+            command = venv_python,
             format = common.bracketed_paste_python,
             block_dividers = { "# %%", "#%%" },
             env = { PYTHON_BASIC_REPL = "1" } --this is needed for python3.13 and up.

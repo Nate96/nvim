@@ -52,7 +52,7 @@ require 'telescope'.setup {
 local builtin = require('telescope.builtin')
 
 vim.keymap.set('n', '<leader>f.', builtin.find_files, {})
-vim.keymap.set('n', '<leader>F.', builtin.live_grep, {})
+vim.keymap.set('n', '<leader>g.', builtin.live_grep, {})
 vim.keymap.set('n', '<leader>b', builtin.buffers, {})
 vim.keymap.set('n', '<leader>H', builtin.help_tags, {})
 vim.keymap.set('n', '<leader>t', builtin.resume, {})
@@ -67,3 +67,26 @@ vim.keymap.set('n', '<leader>fh', function()
       })
 end)
 
+vim.keymap.set('n', '<leader>gh', function()
+   builtin.live_grep({
+      prompt_title = "+ grep hidden/ignored",
+      additional_args = { "--hidden", "--no-ignore", "--glob", "!.git/" },
+   })
+end, { desc = "Grep incl. hidden + ignored" })
+
+-- <leader>fd / <leader>gd: find / grep in the current buffer's dir and below.
+local function buffer_dir()
+   local dir = vim.fn.expand("%:p:h")
+   if dir == "" or vim.fn.isdirectory(dir) == 0 then dir = vim.fn.getcwd() end
+   return dir
+end
+
+vim.keymap.set('n', '<leader>fd', function()
+   local dir = buffer_dir()
+   builtin.find_files({ cwd = dir, prompt_title = "+ " .. vim.fn.fnamemodify(dir, ":~") })
+end, { desc = "Find files in buffer dir" })
+
+vim.keymap.set('n', '<leader>gd', function()
+   local dir = buffer_dir()
+   builtin.live_grep({ cwd = dir, prompt_title = "+ grep " .. vim.fn.fnamemodify(dir, ":~") })
+end, { desc = "Grep buffer dir" })
