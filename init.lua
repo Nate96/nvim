@@ -1,18 +1,19 @@
+vim.cmd.source(vim.fn.stdpath("config") .. "/.vimrc")
 vim.cmd('source ~/.vimrc')
 
 print("Welcome", '\n', '\n')
-
-local file_path = "/Users/nbraukhoff/.config/nvim/cover.txt"
-local file = io.open(file_path, "r")
+local file = io.open(vim.fn.stdpath("config") .. "/cover.txt" , "r")
 
 if file then
    print(file:read("*all"))
    file:close()
 end
 
-
 -- Sourcing for Vim Plug
-local vimrc = vim.fn.stdpath("config") .. "/vimrc.vim"
-vim.cmd.source(vimrc)
+vim.cmd.source(vim.fn.stdpath("config") .. "/vimrc.vim")
 
 require("config")
+
+-- TODO: Convert to Vimplug
+-- TODO: Research lazy git and how to change that
+-- TODO: Uninstall lsp-zero and use building lsp
