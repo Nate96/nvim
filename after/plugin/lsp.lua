@@ -1,87 +1,54 @@
-local lsp = require("lsp-zero")
+require("mason").setup() -- also puts Mason's servers on PATH
 
-lsp.preset("recommended")
-
-lsp.ensure_installed({
-   -- Markdown LSP
-   -- https://github.com/artempyanykh/marksman
-   'marksman'
+-- Completion (lsp-zero used to set this up)
+local cmp = require("cmp")
+local sel = { behavior = cmp.SelectBehavior.Select }
+cmp.setup({
+   snippet = { expand = function(a) require("luasnip").lsp_expand(a.body) end },
+   mapping = cmp.mapping.preset.insert({
+      ["<C-k>"] = cmp.mapping.select_prev_item(sel),
+      ["<C-j>"] = cmp.mapping.select_next_item(sel),
+      ["<Tab>"] = cmp.mapping.confirm({ select = true }),
+      ["<C-Space>"] = cmp.mapping.complete(),
+   }),
+   sources = { { name = "nvim_lsp" }, { name = "luasnip" } },
 })
 
--- Fix Undefined global 'vim'
-lsp.nvim_workspace()
+-- Settings for every server, plus per-server overrides
+vim.lsp.config("*", { capabilities = require("cmp_nvim_lsp").default_capabilities() })
+vim.lsp.config("lua_ls", { settings = { Lua = { diagnostics = { globals = { "vim" } } } } })
+vim.lsp.config("marksman", { settings = { diagnostics = { disable = { "trailing-space" } } } })
 
-local cmp = require('cmp')
-local cmp_select = {behavior = cmp.SelectBehavior.Select}
-local cmp_mappings = lsp.defaults.cmp_mappings({
-  ['<C-k>'] = cmp.mapping.select_prev_item(cmp_select),
-  ['<C-j>'] = cmp.mapping.select_next_item(cmp_select),
-  ['<Tab>'] = cmp.mapping.confirm({ select = true }),
-  ['<C-Space>'] = cmp.mapping.complete(),
+-- Servers you have installed in Mason
+vim.lsp.enable({
+   "lua_ls", "pyright", "ruff", "marksman", "jsonls", "ts_ls",
+   "terraformls", "tflint", "dockerls", "docker_compose_language_service",
+   "azure_pipelines_ls",
 })
 
-lsp.setup_nvim_cmp({
-  mapping = cmp_mappings,
-  sources = {
-    {name = 'nvim_lsp'},
-    {name = 'luasnip'},
-  },
+-- Keymaps when a server attaches (replaces lsp.on_attach)
+vim.api.nvim_create_autocmd("LspAttach", {
+   callback = function(ev)
+      local o = { buffer = ev.buf }
+      vim.keymap.set("n", "gd", vim.lsp.buf.definition, o)
+      vim.keymap.set("n", "K", vim.lsp.buf.hover, o)
+      vim.keymap.set("n", "<leader>vws", vim.lsp.buf.workspace_symbol, o)
+      vim.keymap.set("n", "<leader>vd", vim.diagnostic.open_float, o)
+      vim.keymap.set("n", "]d", function() vim.diagnostic.jump({ count = 1, float = true }) end, o)
+      vim.keymap.set("n", "[d", function() vim.diagnostic.jump({ count = -1, float = true }) end, o)
+      vim.keymap.set("n", "<leader>vca", vim.lsp.buf.code_action, o)
+      vim.keymap.set("n", "<leader>vrr", vim.lsp.buf.references, o)
+      vim.keymap.set("n", "<leader>vrn", vim.lsp.buf.rename, o)
+      vim.keymap.set("i", "<C-h>", vim.lsp.buf.signature_help, o)
+   end,
 })
 
-lsp.set_preferences({
-    suggest_lsp_servers = false,
-    sign_icons = {
-        error = 'E',
-        warn = 'W',
-        hint = 'H',
-        info = 'I'
-    }
-})
-
-lsp.on_attach(function(client, bufnr)
-  local opts = {buffer = bufnr, remap = false}
-
-  vim.keymap.set("n", "gd", function() vim.lsp.buf.definition() end, opts)
-  vim.keymap.set("n", "K", function() vim.lsp.buf.hover() end, opts)
-  vim.keymap.set("n", "<leader>vws", function() vim.lsp.buf.workspace_symbol() end, opts)
-  vim.keymap.set("n", "<leader>vd", function() vim.diagnostic.open_float() end, opts)
-  vim.keymap.set("n", "[d", function() vim.diagnostic.goto_next() end, opts)
-  vim.keymap.set("n", "]d", function() vim.diagnostic.goto_prev() end, opts)
-  vim.keymap.set("n", "<leader>vca", function() vim.lsp.buf.code_action() end, opts)
-  vim.keymap.set("n", "<leader>vrr", function() vim.lsp.buf.refrrences() end, opts)
-  vim.keymap.set("n", "<leader>vrn", function() vim.lsp.buf.rename() end, opts)
-  vim.keymap.set("i", "<C-h>", function() vim.lsp.buf.signature_help() end, opts)
-
-  -- Toggle diagnostic for LSP
-  vim.keymap.set("n", "<leader>ml", function ()
-     local config = vim.diagnostic.config
-     local vt = config().virtual_text
-     config {
-        virtual_text = not vt,
-        underline = not vt,
-        signs = not vt,
-     }
-  end)
-end)
-
-lsp.setup()
-
+local S = vim.diagnostic.severity
 vim.diagnostic.config({
-    virtual_text = true
+   virtual_text = true,
+   signs = { text = { [S.ERROR] = "E", [S.WARN] = "W", [S.HINT] = "H", [S.INFO] = "I" } },
 })
 
-
--- Configure marksman LSP
--- vim.lsp.config(marskman, NOTE: when changes are made need to place with the 
---                                line below
-require("lspconfig").marksman.setup{
-  settings = {
-   diagnostics = {
-     disable = {"trailing-space"}
-   }
-  },
-
-}
 
 vim.cmd [[autocmd! ColorScheme * highlight NormalFloat guibg=#1f2335]]
 vim.cmd [[autocmd! ColorScheme * highlight FloatBorder guifg=white guibg=#1f2335]]

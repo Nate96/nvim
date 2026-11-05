@@ -40,21 +40,11 @@ require'packer'.startup(function(use)
   use 'nvim-telescope/telescope-borderless.nvim'
 
   -- Lsp
-  use {
-    'VonHeikemen/lsp-zero.nvim',
-    branch = 'v2.x',
-    requires = {
-      -- LSP Support
-      { 'neovim/nvim-lspconfig' },           -- Required
-      { 'williamboman/mason.nvim' },         -- Optional
-      { 'williamboman/mason-lspconfig.nvim' }, -- Optional
-
-      -- Autocompletion
-      { 'hrsh7th/nvim-cmp' },   -- Required
-      { 'hrsh7th/cmp-nvim-lsp' }, -- Required
-      { 'L3MON4D3/LuaSnip' },   -- Required
-    }
-  }
+  use 'neovim/nvim-lspconfig'   -- ready-made server configs used by vim.lsp.enable
+  use 'williamboman/mason.nvim' -- installs the server programs
+  use 'hrsh7th/nvim-cmp'
+  use 'hrsh7th/cmp-nvim-lsp'
+  use 'L3MON4D3/LuaSnip'
 
    -- Note Books
    -- https://github.com/Vigemus/iron.nvim
