@@ -7,8 +7,7 @@ set tabstop=4
 set softtabstop=4
 set shiftwidth=4
 set termguicolors
-set nowrap
-set linebreak
+set wrap linebreak
 
 " cursor fixed in center
 set scrolloff=99
