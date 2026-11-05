@@ -78,10 +78,5 @@ else
 end
 
 require("plugins")
-local dir = vim.fn.stdpath('config') .. "/lua/local"
-for _, f in ipairs(vim.fn.glob(dir .. "/*.lua", false, true)) do
-   local ok, err = pcall(dofile, f)
-   if not ok then vim.notify("local: " .. err, vim.log.levels.WARN) end
-end
 
 print("Configuration Loaded")
