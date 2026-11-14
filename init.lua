@@ -16,4 +16,3 @@ require("config")
 
 -- TODO: Convert to Vimplug
 -- TODO: Research lazy git and how to change that
--- TODO: Uninstall lsp-zero and use building lsp
