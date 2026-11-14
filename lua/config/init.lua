@@ -27,6 +27,8 @@ vim.api.nvim_create_autocmd("ColorScheme", {
 })
 
 
+require("plugins")
+
 require 'vscode'.load()
 require 'vscode.colors'.get_colors()
 require('vscode').setup {
@@ -50,7 +52,7 @@ require 'nvim-treesitter.configs'.setup {
 
 local ok, gitsigns = pcall(require, 'gitsigns')
 if not ok then
-   vim.notify('gitsigns not installed. Run :PackerSync', vim.log.levels.WARN)
+   vim.notify('gitsigns not installed. Run :lua vim.pack.update()', vim.log.levels.WARN)
 else
    gitsigns.setup {
       signs = {
@@ -76,7 +78,5 @@ else
       end,
    }
 end
-
-require("plugins")
 
 print("Configuration Loaded")

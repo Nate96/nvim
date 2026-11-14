@@ -9,10 +9,4 @@ if file then
    file:close()
 end
 
--- Sourcing for Vim Plug
-vim.cmd.source(vim.fn.stdpath("config") .. "/vimrc.vim")
-
 require("config")
-
--- TODO: Convert to Vimplug
--- TODO: Research lazy git and how to change that
